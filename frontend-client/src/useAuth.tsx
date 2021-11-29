@@ -20,7 +20,18 @@ export default function useAuth({ code }: any) {
         code,
       })
       .then((res) => {
+        setAccessToken(res.data.accessToken);
+        setRrefreshToken(res.data.refreshToken);
+        setExpiresIn(res.data.expiresIn);
+
         console.log(res.data);
+        // @ts-ignore
+        window.history.pushState({}, null, "/");
+      })
+      .catch(() => {
+        // @ts-ignore
+        window.location = "/";
       });
   }, [code]);
+  return accessToken;
 }

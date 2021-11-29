@@ -1,9 +1,10 @@
 const express = require("express");
 const SpotifyWebApi = require("spotify-web-api-node");
 const cors = require("cors");
-
+const bodyParser = require("body-parser");
 const app = express();
 app.use(cors());
+app.use(bodyParser.json());
 
 //capital here to sepcfic this is a class we are creating
 
@@ -24,7 +25,8 @@ app.post("Login", (req, res) => {
         expiresIn: data.body.expires_in,
       });
     })
-    .catch(() => {
+    .catch((err) => {
+      console.log(err);
       res.sendStatus(400);
     });
 });

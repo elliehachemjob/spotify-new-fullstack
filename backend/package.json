@@ -12,5 +12,9 @@
   "dependencies": {
     "express": "^4.17.1",
     "spotify-web-api-node": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.10",
+    "nodemon": "^2.0.15"
   }
 }

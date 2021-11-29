@@ -1,7 +1,9 @@
 const express = require("express");
 const SpotifyWebApi = require("spotify-web-api-node");
+const cors = require("cors");
 
 const app = express();
+app.use(cors());
 
 //capital here to sepcfic this is a class we are creating
 
@@ -26,3 +28,5 @@ app.post("Login", (req, res) => {
       res.sendStatus(400);
     });
 });
+
+app.listen(3001);
